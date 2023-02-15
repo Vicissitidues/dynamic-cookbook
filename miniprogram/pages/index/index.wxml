@@ -6,6 +6,11 @@
         <open-data type="userAvatarUrl"></open-data>
       </view>
       <open-data type="userNickName"></open-data>
+      <button type="primary" bind:tap="tapVibrate" >vibrate</button>
+      <view style="width: 100%;">
+        <text>{{step}}</text>
+      <slider bindchanging="slideChange" />
+      </view>
     </block>
     <block wx:elif="{{!hasUserInfo}}">
       <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>

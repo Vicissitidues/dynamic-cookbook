@@ -1,4 +1,8 @@
 // index.ts
+
+import { CheckboxChangeEvent } from "antd/lib/checkbox";
+import { SliderBaseProps, SliderSingleProps } from "antd/lib/slider";
+
 // 获取应用实例
 const app = getApp<IAppOption>()
 
@@ -6,6 +10,7 @@ Page({
   data: {
     motto: 'Hello World',
     userInfo: {},
+    step: 0,
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
@@ -15,6 +20,24 @@ Page({
   bindViewTap() {
     wx.navigateTo({
       url: '../logs/logs',
+    })
+  },
+  tapVibrate() {
+    let cont: number = 0;
+    const intv: number = setInterval(() => {
+      wx.vibrateShort({
+        type: 'light'
+      })
+      cont++;
+      cont > 10 && clearInterval(intv)
+    }, 100)
+  },
+  slideChange(e: { detail: { value: number } }): void {
+    this.setData({
+      step: e.detail.value
+    }, () => {
+      (!(e.detail.value % 10) && ![0, 100].includes(e.detail.value)) &&
+        wx.vibrateShort({ type: "light" });
     })
   },
   onLoad() {
