@@ -15,5 +15,5 @@ interface iReqParameter {
   }
 }
 interface iRequest {
-  (url: string, data: iReqData, method: TMethod): Promise<any>
+  (url: string, data: string | object | ArrayBuffer, method: TMethod): Promise<any>
 }

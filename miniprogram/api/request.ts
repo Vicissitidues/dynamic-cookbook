@@ -1,4 +1,3 @@
-import api from './api';
 // http request 
 const request: iRequest = (url, data = {}, method) => {
   wx.showLoading({
@@ -13,7 +12,6 @@ const request: iRequest = (url, data = {}, method) => {
         'content-type': 'application/x-www-form-urlencoded'
       },
       success: res => {
-        console.log(eReqType.GET);
         resolve(res.data);
       },
       fail: err => {

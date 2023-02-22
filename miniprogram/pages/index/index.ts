@@ -1,11 +1,10 @@
 // index.ts
 
-import { CheckboxChangeEvent } from "antd/lib/checkbox";
-import { SliderBaseProps, SliderSingleProps } from "antd/lib/slider";
-
+import globalSettings from "../../lib/globalEnum"
+import bucketTargetHandler from "../../utils/bucketTargetHandler"
 // 获取应用实例
 const app = getApp<IAppOption>()
-
+const handler = new bucketTargetHandler();
 Page({
   data: {
     motto: 'Hello World',
@@ -20,6 +19,26 @@ Page({
   bindViewTap() {
     wx.navigateTo({
       url: '../logs/logs',
+    })
+  },
+  navigate2Detail() {
+    wx.navigateTo({
+      url: '../detail/detail'
+    })
+  },
+  tapGetObj() {
+    handler.getObject('demo.png')
+  },
+  tapUpload() {
+    const result = wx.chooseMedia({
+      count: 1,
+      mediaType: ['image'],
+      sourceType: ['album', 'camera'],
+      maxDuration: 30,
+      camera: 'back',
+    })
+    result.then(res => {
+      handler.uploadFile('mmprogram', res.tempFiles[0].tempFilePath, globalSettings.eRequest.PUT)
     })
   },
   tapVibrate() {

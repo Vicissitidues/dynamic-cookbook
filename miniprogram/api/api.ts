@@ -1,10 +1,10 @@
 // api address
-const base_url = "https://exanple.com";
+const base_url = "http://129.211.219.237";
 // interface urls
-const api = {
-  test: base_url + '/example/config',
+const api:{[key:string]:string} = {
+  getToken: base_url + '/sts/refresh',  //获取COSbucket的token
 }
-export default {
+export  {
   api
 }
 

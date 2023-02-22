@@ -1,0 +1,9 @@
+<view>
+  <block style="display: flex;">
+    <view style="width: 100rpx;" wx:for="{{prepare.list}}" wx:key="img" >
+      {{item.name}}
+      <!-- {{item.svg}} -->
+     <image  src="{{item.svg}}" alt=""/>
+    </view>
+  </block>
+</view>
