@@ -1,7 +1,8 @@
 import { api } from "../api/api";
 import request from "../api/request";
 import globalSettings from "../lib/globalEnum"
-let COS = require("../lib/cos-wx-sdk-v5.js")
+// let COS = require("../lib/cos-wx-sdk-v5.js")
+let COS = require('cos-wx-sdk-v5');
 interface iBucketOpt {
   Bucket: String,
   Region: String
@@ -64,6 +65,7 @@ class bucketTargetHandler {
   }
   /**
    * @description 上传文件｜图片｜ArrayBuffer 到COS bucket
+   * @method put
    * @param filename 文件名
    * @param tmpFilePath 文件的临时路径
    * @param method 方法 [post｜put|Append]
