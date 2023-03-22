@@ -17,3 +17,10 @@ interface iReqParameter {
 interface iRequest {
   (url: string, data: string | object | ArrayBuffer, method: TMethod): Promise<any>
 }
+interface iResponse  {
+  code: string;
+  data: any;
+  message: string;
+  requestId: string;
+  success: boolean;
+}

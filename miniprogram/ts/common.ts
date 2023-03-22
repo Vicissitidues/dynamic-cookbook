@@ -5,11 +5,10 @@ enum eCode {
   ACCOUNTERROR = 402,
   NOLOGIN = 403,
 }
-
-interface iResponse {
-  code: Number;
-  msg: String;
-  data: Array<any> | {};
+enum globalAlert {
+  REQERR = '请求错误',
+  UNAUTH = '未登录',
+  FORBIDDEN = '被拒绝',
+  NOTFOUND = '404 not found',
 }
-
-export { eCode, iResponse, }
+export { eCode, globalAlert }

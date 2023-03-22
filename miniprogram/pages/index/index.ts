@@ -26,6 +26,11 @@ Page({
       url: '../detail/detail'
     })
   },
+  navi2ppagard(){
+    wx.navigateTo({
+      url:'../detail/detail'
+    })
+  },
   tapGetObj() {
     handler.getObject('demo.png')
   },

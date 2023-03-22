@@ -1,5 +1,5 @@
-import { api } from "../api/api";
-import request from "../api/request";
+//import { api } from "../api/api";
+import { request, api } from "../api/request";
 import globalSettings from "../lib/globalEnum"
 // let COS = require("../lib/cos-wx-sdk-v5.js")
 let COS = require('cos-wx-sdk-v5');

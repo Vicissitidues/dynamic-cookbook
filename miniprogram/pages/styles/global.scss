@@ -1,3 +1,14 @@
+$X: 10rpx;
+$XX: 20rpx;
+$XXX: 30rpx;
+$XL: 40rpx;
+$L: 50rpx;
+$LX: 60rpx;
+$LXX: 70rpx;
+$LXXX: 80rpx;
+$XC: 90rpx;
+$C: 100rpx;
+
 .dyc-flex {
   display: flex;
 }
@@ -12,4 +23,16 @@
 
 .dyc-jbetween {
   justify-content: space-between;
+}
+
+.dyc-jaround {
+  justify-content: space-around;
+}
+
+.dyc-fulWidth {
+  width: 100%;
+}
+
+.dyc-fulHeight {
+  height: 100%;
 }

@@ -1,6 +1,180 @@
-/* pages/detail/detail.wxss */
+/* pages/ppgard.wxss */
+@import '../styles/global.scss';
 
-image{
-  width: 100rpx;
-  height: 100rpx;
+page {
+  background-color: #EEE;
+  font-size: 14px;
+  height: 100%;
+}
+
+scroll-view {
+  height: 100%;
+}
+
+.info {
+  // padding-top: env(safe-area-inset-top);
+  /* display: flex; */
+  background-color: white;
+}
+
+.image {
+  width: 100%;
+}
+
+.avatar {
+  /* display: inline-block; */
+  display: flex;
+  width: 100%;
+  height: 350px;
+  overflow: hidden;
+  /* position: absolute; */
+  left: 20px;
+  /* top: 10px; */
+  transform-origin: left 75%;
+  will-change: transform;
+  /* transition: transform .03s linear; */
+  // z-index: 2;
+  /* contain: strict; */
+  // position: sticky;
+  /* top: -20px; */
+  // transform: translateY(-20px);
+  //background-color: dimgrey;
+}
+
+.gradient {
+  height: 420px;
+  width: 100%;
+  margin-top: -200px;
+  position: sticky;
+
+  image {
+    width: 50px;
+    height: 50px;
+  }
+
+  .like {
+    background-image: url('https://dynamic-cookbook-1316931011.cos.ap-chengdu.myqcloud.com/heart-fill.svg');
+  }
+
+  .unlike {
+    background-image: url('https://dynamic-cookbook-1316931011.cos.ap-chengdu.myqcloud.com/heart.svg');
+  }
+
+  .description {
+    color: rgba($color: #FFFFFF, $alpha: .7);
+    position: sticky;
+    top: 100px;
+    padding: 40rpx;
+
+    // padding-left: 20rpx;
+    // padding-right: 20rpx;
+    // padding-top: -100rpx;
+    margin-top: -250rpx;
+    // padding-bottom: 20rpx;
+  }
+}
+
+.title {
+  padding-top: 100px;
+  padding-left: 20px;
+  padding-right: 20px;
+  font-size: 24px;
+  position: sticky;
+  top: -55px;
+  margin-bottom: 130px;
+  align-items: center;
+
+  .dishname {
+    color: white;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}
+
+
+
+.content {
+  height: 300px;
+  width: 100%;
+  /* background-color: black; */
+  // z-index: 3;
+  // position: fixed;
+  // background-image: linear-gradient(0deg, black,black,black, transparent);
+}
+
+.list {
+  height: 1114px;
+}
+
+.prepare-list {
+  width: 100%;
+  height: auto;
+  background-color: white;
+
+  .ingredients {
+    padding: 20px;
+    padding-top: 30px;
+
+    .title-container {
+      display: flex;
+      align-items: baseline;
+
+      .p-title {
+        font-size: 20px;
+        position: relative;
+        line-height: 28px;
+        font-weight: 500;
+        font-family: 'PingFang SC';
+      }
+
+      image {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  .detail-item {
+    height: 22px;
+    margin-top: 26px;
+
+    view {
+      font-size: 16px;
+      color: rgba(49, 49, 49, 0.6);
+    }
+
+    #quatity {
+      color:  #313131;
+      font-weight: 400;
+    }
+  }
+
+  attention {}
+}
+
+.hints {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+
+  .hint-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 65px;
+    width: 100px;
+
+    .icon {
+      width: 30px;
+      height: 30px;
+    }
+
+    .name {
+      color: lightgray;
+    }
+
+  }
+
 }

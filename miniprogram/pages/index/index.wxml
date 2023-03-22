@@ -10,6 +10,8 @@
       <button type="default" bind:tap="tapUpload">upload</button>
       <button type="default" bind:tap="tapGetObj">getObj</button>
       <button type="default" bind:tap="navigate2Detail" >进入详情</button>
+      <button type="default" bindtap="navi2ppagard">进入动画测试
+      </button>
       <view style="width: 100%;">
         <text>{{step}}</text>
       <slider bindchanging="slideChange" />

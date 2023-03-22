@@ -1,9 +1,40 @@
-<view>
-  <block style="display: flex;">
-    <view style="width: 100rpx;" wx:for="{{prepare.list}}" wx:key="img" >
-      {{item.name}}
-      <!-- {{item.svg}} -->
-     <image  src="{{item.svg}}" alt=""/>
+<scroll-view id="scroller" scroll-y throttle="{{false}}">
+  <view class="info">
+    <image class="avatar" src="{{prepare.cover}}" mode="aspectFill" />
+    <view class="gradient">
+      <view class="dyc-jbetween dyc-flex title">
+        <text class="dishname">{{prepare.longTitle}}</text>
+        <image class="likeBtn" bindtap="tapLike" src="{{ prepare.like ? 'https://dynamic-cookbook-1316931011.cos.ap-chengdu.myqcloud.com/dycb/heart-fill.svg':'https://dynamic-cookbook-1316931011.cos.ap-chengdu.myqcloud.com/dycb/heart.svg'}}"></image>
+      </view>
+      <view class="description">
+        {{prepare.description}}
+      </view>
+      <view class="hints">
+        <view class="hint-container" wx:key="name" wx:for="{{prepare.hints}}" wx:for-item="i">
+          <image class="icon" src="{{i.icon}}" />
+          <view class="name">{{i.name}}</view>
+        </view>
+      </view>
     </view>
-  </block>
-</view>
+    <view class="prepare-list">
+      <view class="ingredients">
+        <view class="title-container">
+          <Text class="p-title">准备食材</Text>
+          <view>
+            <image src="../../lib/pow.svg"/>
+            <Text>2人份</Text>
+          </view>
+        </view>
+        <view class="detail-item dyc-flex dyc-jbetween" wx:for="{{prepare.recipeDetails}}" wx:for-item="detail">
+          <view>{{detail.ingredientName}}</view>
+          <view id="quatity">{{detail.quantity+detail.unitName}}</view>
+        </view>
+      </view>
+      <view class="attention">
+
+      </view>
+    </view>
+    <view class="list"></view>
+    <view class="list"></view>
+  </view>
+</scroll-view>
