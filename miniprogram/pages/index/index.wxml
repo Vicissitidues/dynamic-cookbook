@@ -1,33 +1,74 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <block wx:if="{{canIUseOpenData}}">
-      <view class="userinfo-avatar" bindtap="bindViewTap">
-        <open-data type="userAvatarUrl"></open-data>
+<scroll-view id="scroller" scroll-y throttle="{{false}}">
+  <view class="container">
+    <!-- 标题 -->
+    <view class="title" style="padding-top:{{top+10}}px">
+      <Text>今天准备做点什么呢</Text>
+      <view>
+        <open-data class="nickname" type="userNickName"></open-data>
       </view>
-      <open-data type="userNickName"></open-data>
-      <button type="primary" bind:tap="tapVibrate" >vibrate</button>
-      <button type="default" bind:tap="tapUpload">upload</button>
-      <button type="default" bind:tap="tapGetObj">getObj</button>
-      <button type="default" bind:tap="navigate2Detail" >进入详情</button>
-      <button type="default" bindtap="navi2ppagard">进入动画测试
-      </button>
-      <view style="width: 100%;">
-        <text>{{step}}</text>
-      <slider bindchanging="slideChange" />
+    </view>
+    <!-- 推荐 -->
+    <view class="recommend"  
+    id="rem"
+    style="background-image: url(https://dynamic-cookbook-1316931011.cos.ap-chengdu.myqcloud.com/cover/hongshaorou.gif); background-repeat: no-repeat; width: 670rpx; height: 336rpx; display: block; box-sizing: border-box; left: 0rpx; top: 0rpx">
+      <view class="recommend-dish">
+        <view class="name">家常红烧肉</view>
+        <view class="diffcult">
+          60分钟 ｜ 入门
+        </view>
       </view>
-    </block>
-    <block wx:elif="{{!hasUserInfo}}">
-      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
-      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
-    </block>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+      <view class="navigateBtn">
+        <view class="icon">
+          >
+        </view>
+      </view>
+    </view>
+    <view class="kitchen">
+      <Text>我的灶台</Text>
+      <view class="act-container">
+        <view class="activity">
+          <view class="act-line" wx:for="{{activity}}" wx:key="i" wx:for-item="i">
+            <view class="act-block" wx:for="{{i}}" wx:for-item="b" wx:key="name" style="background-color: {{b}};">
+            </view>
+          </view>
+        </view>
+        <view class="achieve">
+          <text id="day">17</text>
+          <text id="disc">本月天数</text>
+        </view>
+      </view>
+
+    </view>
+    <view class="userinfo">
+      <block wx:if="{{canIUseOpenData}}">
+        <view class="userinfo-avatar" bindtap="bindViewTap">
+          <open-data type="userAvatarUrl"></open-data>
+        </view>
+        <open-data type="userNickName"></open-data>
+        <button type="primary" bind:tap="tapVibrate">vibrate</button>
+        <button type="default" bind:tap="tapUpload">upload</button>
+        <button type="default" bind:tap="tapGetObj">getObj</button>
+        <button type="default" bind:tap="navigate2Detail">进入详情</button>
+        <button type="default" bindtap="navi2ppagard">进入动画测试
+        </button>
+        <view style="width: 100%;">
+          <text>{{step}}</text>
+          <slider bindchanging="slideChange" />
+        </view>
+      </block>
+      <block wx:elif="{{!hasUserInfo}}">
+        <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+        <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+        <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+      </block>
+      <block wx:else>
+        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </block>
+    </view>
+    <view class="usermotto">
+      <text class="user-motto">{{motto}}</text>
+    </view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
-</view>
+</scroll-view>

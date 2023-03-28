@@ -1,7 +1,7 @@
 //import { api } from "../api/api";
 import { request, api } from "../api/request";
-import globalSettings from "../lib/globalEnum"
-// let COS = require("../lib/cos-wx-sdk-v5.js")
+import globalSettings from "../lib/globalEnum";
+
 let COS = require('cos-wx-sdk-v5');
 interface iBucketOpt {
   Bucket: String,

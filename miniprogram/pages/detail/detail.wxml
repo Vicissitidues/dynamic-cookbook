@@ -1,10 +1,11 @@
 <scroll-view id="scroller" scroll-y throttle="{{false}}">
   <view class="info">
     <image class="avatar" src="{{prepare.cover}}" mode="aspectFill" />
+    <!-- 渐变区域 -->
     <view class="gradient">
-      <view class="dyc-jbetween dyc-flex title">
+      <view class="dyc-jbetween dyc-flex title" style="top:{{top-10}}px">
         <text class="dishname">{{prepare.longTitle}}</text>
-        <image class="likeBtn" bindtap="tapLike" src="{{ prepare.like ? 'https://dynamic-cookbook-1316931011.cos.ap-chengdu.myqcloud.com/dycb/heart-fill.svg':'https://dynamic-cookbook-1316931011.cos.ap-chengdu.myqcloud.com/dycb/heart.svg'}}"></image>
+        <image class="likeBtn" bindtap="tapLike" src="{{ prepare.like ? '../../assets/svg/like.svg':'../../assets/svg/like_outline.svg'}}"></image>
       </view>
       <view class="description">
         {{prepare.description}}
@@ -16,25 +17,48 @@
         </view>
       </view>
     </view>
+    <!-- 准备区域 -->
     <view class="prepare-list">
+      <!-- 准备食材 -->
       <view class="ingredients">
         <view class="title-container">
-          <Text class="p-title">准备食材</Text>
+          <view class="p-title-container">
+            <image src="../../assets/svg/pow.svg" />
+            <Text class="p-title">准备食材</Text>
+          </view>
           <view>
-            <image src="../../lib/pow.svg"/>
-            <Text>2人份</Text>
+            <Text class="amount">{{prepare.amount}}人份</Text>
           </view>
         </view>
-        <view class="detail-item dyc-flex dyc-jbetween" wx:for="{{prepare.recipeDetails}}" wx:for-item="detail">
+        <view class="detail-item dyc-flex dyc-jbetween" wx:for="{{prepare.recipeDetails}}" wx:for-item="detail" wx:key="unitName">
           <view>{{detail.ingredientName}}</view>
           <view id="quatity">{{detail.quantity+detail.unitName}}</view>
         </view>
       </view>
-      <view class="attention">
-
+      <!-- 注意事项 -->
+      <view class="ingredients">
+        <view class="title-container">
+          <view class="p-title-container">
+            <image src="../../assets/svg/hint.svg" />
+            <Text class="p-title">注意事项</Text>
+          </view>
+        </view>
+        <view class="attention dyc-flex" wx:for="{{prepare.attention}}" wx:for-item="attention" wx:key="attention">
+          <view class="dot"> </view>
+          <view class="text">
+           <text>{{attention}}</text> 
+          </view>
+        </view>
       </view>
     </view>
-    <view class="list"></view>
-    <view class="list"></view>
+    <!-- 详细做法btn -->
+    <button hover-class="afterpressed"
+    hover-stay-time="500"
+    >
+      <view>
+        <image id="btn-icon" src="../../assets/svg/scoop.svg" />
+        <text>查看做法</text>
+      </view>
+    </button>
   </view>
 </scroll-view>

@@ -1,5 +1,4 @@
 // index.ts
-
 import globalSettings from "../../lib/globalEnum"
 import bucketTargetHandler from "../../utils/bucketTargetHandler"
 // 获取应用实例
@@ -13,7 +12,9 @@ Page({
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
+    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName'), // 如需尝试获取用户信息可改为false
+    top: 0,
+    activity: [0],
   },
   // 事件处理函数
   bindViewTap() {
@@ -26,9 +27,9 @@ Page({
       url: '../detail/detail'
     })
   },
-  navi2ppagard(){
+  navi2ppagard() {
     wx.navigateTo({
-      url:'../detail/detail'
+      url: '../detail/detail'
     })
   },
   tapGetObj() {
@@ -64,7 +65,71 @@ Page({
         wx.vibrateShort({ type: "light" });
     })
   },
+  _animate() {
+    wx.createSelectorQuery().select('#scroller').fields({
+      scrollOffset: true,
+      size: true,
+    }, () => {
+      this.animate('#rem', [{
+        height: '360px'
+      },{
+        height: '0px'
+      }], 2000, {
+        scrollSource: '#scroller',
+        timeRange: 1000,
+        startScrollOffset: 0,
+        endScrollOffset: 150,
+      })
+    }).exec()
+  },
+  onReady() {
+    // start animation
+    this._animate();
+    // 获取基础信息
+    wx.login({
+      success (res) {
+        if (res.code) {
+          //发起网络请求
+         console.log(res.code);
+         
+        } else {
+          console.log('登录失败！' + res.errMsg)
+        }
+      }
+    })
+    const menuBtnPos = wx.getMenuButtonBoundingClientRect();
+    console.log(menuBtnPos);
+
+    this.setData({
+      top: menuBtnPos.top
+    })
+    console.log(menuBtnPos);
+    wx.setStorageSync('menuBtnPos', menuBtnPos)
+
+  },
   onLoad() {
+    // 生成一组0或1的数组 
+    let activity: any[] = new Array(5).fill(0);
+    function any() {
+      return arguments[Math.floor(Math.random() * arguments.length)]
+    }
+    activity = [...activity].map(() => {
+      let c = 0;
+      let item = [];
+      do {
+        item.push(
+          // @ts-ignore
+          any("lightgray", "#cddc39", "#8bc34a", "#4caf50")
+        )
+        c++;
+      } while (c <= 6);
+      return item;
+    })
+
+    this.setData({ activity })
+    console.log(activity);
+
+
     // @ts-ignore
     if (wx.getUserProfile) {
       this.setData({

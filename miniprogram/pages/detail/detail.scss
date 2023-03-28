@@ -17,6 +17,90 @@ scroll-view {
   background-color: white;
 }
 
+button {
+  height: 52px;
+  border-radius: 28px;
+  background: rgba(192, 225, 72, 1);
+  position: sticky;
+  bottom: 50px;
+  margin-top: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  view {
+    display: flex;
+    width: 100px;
+    justify-content: space-between;
+
+    image {
+      width: 24px;
+      height: 24px;
+    }
+
+    text {
+      display: block;
+      color: rgba(250, 250, 246, 1);
+      font-family: PingFang SC;
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 24px;
+      letter-spacing: 0em;
+    }
+  }
+}
+
+@keyframes btnAnimate {
+  from {
+    height: 52px;
+    width: 180px;
+  }
+
+  to {
+    height: 42px;
+    width: 160px;
+  }
+
+  // 0% {
+  //   height: 52px;
+  //   width: 236px;
+  // }
+
+  // 35% {
+  //   height: 47px;
+  //   width: 231px;
+  // }
+
+  // 70% {
+  //   height: 42px;
+  //   width: 226px;
+  // }
+
+  // 85% {
+  //   height: 47px;
+  //   width: 231px;
+  // }
+
+  // 100% {
+  //   height: 52px;
+  //   width: 236px;
+  // }
+}
+
+.afterpressed {
+  animation-name: btnAnimate;
+  animation-duration: .3s;
+  animation-timing-function: linear;
+  animation-iteration-count: inherit;
+
+  #btn-icon {
+    transform: rotate(360deg);
+    transition: .5s;
+  }
+
+
+}
+
 .image {
   width: 100%;
 }
@@ -42,14 +126,15 @@ scroll-view {
 }
 
 .gradient {
-  height: 420px;
+  height: 380px;
   width: 100%;
   margin-top: -200px;
   position: sticky;
+  padding-top: 1px;
 
   image {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
   }
 
   .like {
@@ -63,9 +148,10 @@ scroll-view {
   .description {
     color: rgba($color: #FFFFFF, $alpha: .7);
     position: sticky;
-    top: 100px;
+    top: 80px;
     padding: 40rpx;
-
+    height: 180rpx;
+    font-size: 26rpx;
     // padding-left: 20rpx;
     // padding-right: 20rpx;
     // padding-top: -100rpx;
@@ -75,12 +161,12 @@ scroll-view {
 }
 
 .title {
-  padding-top: 100px;
+  margin-top: 100px;
   padding-left: 20px;
   padding-right: 20px;
   font-size: 24px;
   position: sticky;
-  top: -55px;
+  // top: -55px;
   margin-bottom: 130px;
   align-items: center;
 
@@ -119,25 +205,60 @@ scroll-view {
     .title-container {
       display: flex;
       align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 33px;
 
-      .p-title {
-        font-size: 20px;
-        position: relative;
-        line-height: 28px;
-        font-weight: 500;
-        font-family: 'PingFang SC';
+      .p-title-container {
+        width: 96px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .p-title {
+          font-size: 16px;
+          position: relative;
+          line-height: 22.4px;
+          font-weight: 500;
+          font-family: 'PingFang SC';
+        }
+
+        image {
+          width: 16px;
+          height: 16px;
+        }
       }
 
-      image {
-        width: 30px;
-        height: 30px;
+      .amount {
+        color: rgba(176, 176, 176, 1);
       }
+    }
+  }
+
+  .attention {
+    align-items: baseline;
+    margin-bottom: 16px;
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      background-color: rgba(176, 211, 66, 1);
+      margin-right: 8px;
+      border-radius: 8px;
+    }
+
+    .text {
+      color: rgba(49, 49, 49, 0.5);
+      font-size: 13px;
+      line-height: 190%;
+      width: 90%;
     }
   }
 
   .detail-item {
     height: 22px;
-    margin-top: 26px;
+    margin-top: 20px;
+    border-bottom: dashed rgba(49, 49, 49, 0.3) 1px;
+    padding-bottom: 20px;
 
     view {
       font-size: 16px;
@@ -145,12 +266,10 @@ scroll-view {
     }
 
     #quatity {
-      color:  #313131;
+      color: #313131;
       font-weight: 400;
     }
   }
-
-  attention {}
 }
 
 .hints {
@@ -163,12 +282,12 @@ scroll-view {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 65px;
+    height: 46px;
     width: 100px;
 
     .icon {
-      width: 30px;
-      height: 30px;
+      width: 20px;
+      height: 20px;
     }
 
     .name {

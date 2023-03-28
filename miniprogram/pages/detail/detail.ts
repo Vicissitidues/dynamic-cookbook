@@ -11,40 +11,20 @@ Page({
       longTitle: '',
       like: false,
       description: '',
+      amount: 0,
     },
-
+    // styleSheet 
+    top: 0,
   },
-  async onReady() {
-    this._animate();
-    const detail: mReceipeQuery = await request(api.recipeQuery, {
-      "queryOption": {
-        "parseDetail": true,
-        "parseProcedure": false
-      },
-      "recipeId": 2
-    }, "POST")
-    console.log(detail)
-    // handle data
-    const data: iPrepare = {
-      ...this.data.prepare,
-      ...detail.data,
-      hints: [{ icon: eIcon.time, name: detail.data.timeTaken }, {
-        icon: eIcon.salver, name: eDifficulty[detail.data.difficulty]
-      }, {
-        icon: eIcon.fork, name: detail.data.amount + '人'
-      }]
-    }
-    this.setData({
-      prepare: data
-    })
-  },
-  tapLike() {
-    this.setData({
-      prepare: {
-        ...this.data.prepare,
-        like: !this.data.prepare.like
+  onLoad() {
+    wx.getStorage({
+      key: 'menuBtnPos',
+      success: res => {
+        console.log(res);
+        this.setData({
+          top: res.data.top
+        })
       }
-
     })
   },
   _animate() {
@@ -54,7 +34,6 @@ Page({
     while (i <= 100) {
       gradient.push({
         backgroundImage: `linear-gradient(0deg,rgba(0,0,0,${1 - i / 100}),rgba(0,0,0,${1 - i / 100}),rgba(0,0,0,${1 - i / 100}), rgba(0,0,0,0))`,
-        borderBottomLeftRadius: `${50 * (1 - i / 100)}px`
       })
       prepareList.push({
         borderTopRightRadius: `${50 * (1 - i / 100)}px`,
@@ -64,7 +43,7 @@ Page({
     wx.createSelectorQuery().select('#scroller').fields({
       scrollOffset: true,
       size: true,
-    }, (res) => {
+    }, () => {
       this.animate('.avatar', [{
         borderBottomRightRadius: '30%',
         borderColor: 'red',
@@ -139,18 +118,18 @@ Page({
         startScrollOffset: 100,
         endScrollOffset: 200
       })
-      this.animate('.hint-container', [{
-        height: '65px',
-        width: '100px'
-      }, {
-        height: '0px',
-        width: '0px'
-      }], 2000, {
-        scrollSource: '#scroller',
-        timeRange: 2000,
-        startScrollOffset: 0,
-        endScrollOffset: 200
-      })
+      // this.animate('.hint-container', [{
+      //   height: '65px',
+      //   width: '100px'
+      // }, {
+      //   height: '0px',
+      //   width: '0px'
+      // }], 2000, {
+      //   scrollSource: '#scroller',
+      //   timeRange: 2000,
+      //   startScrollOffset: 0,
+      //   endScrollOffset: 200
+      // })
       // this.animate('.search_icon', [{
       //   right: '0',
       //   transform: 'scale(1)',
@@ -165,4 +144,37 @@ Page({
       // })
     }).exec()
   },
+  async onReady() {
+    this._animate();
+    const detail: mReceipeQuery = await request(api.recipeQuery, {
+      "queryOption": {
+        "parseDetail": true,
+        "parseProcedure": false
+      },
+      "recipeId": 1
+    }, "POST")
+    console.log(detail)
+    // handle data
+    const data: iPrepare = {
+      ...this.data.prepare,
+      ...detail.data,
+      hints: [{ icon: eIcon.time, name: detail.data.timeTaken }, {
+        icon: eIcon.salver, name: eDifficulty[detail.data.difficulty]
+      }],
+      attention: ['肉丝不需要过油炸，所以尽量选用稍微带一点肥肉的五花肉。', '鱼香汁要提前兑好。', '这里的鱼香肉丝，咱们采用的是家庭做法，不过油;味道自然会比传统做法稍逊一点。但是做出来的味道，清淡健康。']
+    }
+    this.setData({
+      prepare: data
+    })
+  },
+  tapLike() {
+    this.setData({
+      prepare: {
+        ...this.data.prepare,
+        like: !this.data.prepare.like
+      }
+
+    })
+  },
+
 })
