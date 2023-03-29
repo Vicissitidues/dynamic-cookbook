@@ -102,7 +102,7 @@ Page({
         startScrollOffset: 100,
         endScrollOffset: 400,
       })
-      this.animate('.inner', prepareList, 2000, {
+      this.animate('.prepare-list', prepareList, 2000, {
         scrollSource: '#scroller',
         timeRange: 2000,
         startScrollOffset: 200,
