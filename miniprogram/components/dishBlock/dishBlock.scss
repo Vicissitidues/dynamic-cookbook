@@ -1,0 +1,96 @@
+/* components/block/block.wxss */
+.contact {
+  border-radius: 3px;
+  overflow: hidden;
+
+  &.long {
+    width: 185px;
+    height: 267px;
+    grid-row-start: span 2;
+  }
+
+  &.short {
+    width: 128px;
+    height: 128px;
+    height: 1fr;
+  }
+}
+
+.avatar1 {
+  width: 128px;
+  height: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  font-size: 0;
+  width: 100%;
+}
+
+.name {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: white;
+  margin-top: -30px;
+  padding-left: 10px;
+  position: relative;
+}
+
+.mask {
+  width: 100%;
+  position: relative;
+  background-image: linear-gradient(rgba(1, 1, 1, 0), rgba(1, 1, 1, 0), rgba(1, 1, 1, .8));
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
+  overflow: hidden;
+
+  &.long {
+    height: 267px;
+    margin-top: -267px;
+  }
+
+  &.short {
+    height: 128px;
+    margin-top: -128px;
+  }
+}
+
+.rank {
+  position: relative;
+  width: 25px;
+  height: 30px;
+  background-color: rgba(253, 176, 8, 1);
+  top: 0;
+  text-align: center;
+  border-bottom-left-radius: 100%;
+  border-bottom-right-radius: 100%;
+  color: white;
+  font-size: 10px;
+  left: 10px;
+}
+
+
+.dishblock-two {
+  width: 120px;
+  height: 223px;
+  margin-right: 11px;
+  .d2-avatar {
+    width: 120px;
+    height: 180px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .d2-name {
+    color: #313131;
+    font-size: 14px;
+    font-family: PingFang SC;
+    font-weight: 500;
+    word-wrap: break-word;
+    margin-top: 8px;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+}

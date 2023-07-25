@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+   "detail": "/components/detail/detail",
+   "dishBlock":"/components/dishBlock/dishBlock"
+  },
+  "navigationStyle": "custom"
+}

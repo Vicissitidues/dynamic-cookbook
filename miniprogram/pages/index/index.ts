@@ -1,8 +1,7 @@
 // index.ts
 import globalSettings from "../../lib/globalEnum"
 import bucketTargetHandler from "../../utils/bucketTargetHandler"
-// 获取应用实例
-const app = getApp<IAppOption>()
+
 const handler = new bucketTargetHandler();
 Page({
   data: {

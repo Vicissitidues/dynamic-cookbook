@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/gallery/gallery"
   ],
   "window": {
     "navigationBarBackgroundColor": "@navBgColor",
@@ -15,5 +16,16 @@
   "style": "v2",
   "sitemapLocation": "sitemap.json",
   "darkmode": true,
-  "themeLocation": "theme.json"
+  "themeLocation": "theme.json",
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "text": "首页"
+    
+    },{
+      "pagePath": "pages/gallery/gallery",
+      "text": "列表"
+    
+    }]
+  }
 }

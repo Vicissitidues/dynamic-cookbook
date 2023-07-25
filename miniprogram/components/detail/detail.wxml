@@ -1,0 +1,72 @@
+<!--components/detail/detail.wxml-->
+<page-container show="{{show}}" overlay="{{overlay}}" close-on-slide-down duration="{{duration}}" position="{{position}}" bindbeforeenter="onBeforeEnter" bindenter="onEnter" bindafterenter="onAfterEnter" bindbeforeleave="onBeforeLeave" bindleave="onLeave" bindafterleave="onAfterLeave" bindclickoverlay="onClickOverlay">
+  <scroll-view id="scroller" scroll-y throttle="{{false}}" scroll-top="{{scrollTop}}">
+    <view class="info">
+      <share-element key="avatar" class="avatar" duration="{{duration}}" transform>
+        <image style="width: 100%;height: 100%;" src="{{prepare.cover}}" mode="aspectFill" />
+      </share-element>
+      <!-- 渐变区域 -->
+      <view class="gradient paragraph {{show ? 'enter' : ''}}">
+        <view class="title" style="top:{{top-3}}px">
+          <view class="dyc-jbetween dyc-flex ">
+            <share-element key="name" class="dishname" duration="{{duration}}" transform>
+              <text>{{prepare.longTitle}}</text>
+            </share-element>
+
+            <image class="likeBtn" bindtap="tapLike" src="{{ prepare.like ? '../../assets/svg/like.svg':'../../assets/svg/like_outline.svg'}}"></image>
+          </view>
+          <view class="description">
+            {{prepare.description}}
+          </view>
+        </view>
+        <view class="hints">
+          <view class="hint-container" wx:key="name" wx:for="{{prepare.hints}}" wx:for-item="i">
+            <image class="icon" src="{{i.icon}}" />
+            <view class="name">{{i.name}}</view>
+          </view>
+        </view>
+      </view>
+      <!-- 准备区域 -->
+      <view class="prepare-list">
+        <!-- 准备食材 -->
+        <view class="ingredients">
+          <view class="title-container">
+            <view class="p-title-container">
+              <image src="../../assets/svg/pow.svg" />
+              <Text class="p-title">准备食材</Text>
+            </view>
+            <view>
+              <Text class="amount">{{prepare.amount}}人份</Text>
+            </view>
+          </view>
+          <view class="detail-item dyc-flex dyc-jbetween" wx:for="{{prepare.recipeDetails}}" wx:for-item="detail" wx:key="unitName">
+            <view>{{detail.ingredientName}}</view>
+            <view id="quatity">{{detail.quantity+detail.unitName}}</view>
+          </view>
+        </view>
+        <!-- 注意事项 -->
+        <view class="ingredients">
+          <view class="title-container">
+            <view class="p-title-container">
+              <image src="../../assets/svg/hint.svg" />
+              <Text class="p-title">注意事项</Text>
+            </view>
+          </view>
+          <view class="attention dyc-flex" wx:for="{{prepare.attention}}" wx:for-item="attention" wx:key="attention">
+            <view class="dot"> </view>
+            <view class="text">
+              <text>{{attention}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+      <!-- 详细做法btn -->
+      <button hover-class="afterpressed" hover-stay-time="500">
+        <view>
+          <image id="btn-icon" src="../../assets/svg/scoop.svg" />
+          <text>查看做法</text>
+        </view>
+      </button>
+    </view>
+  </scroll-view>
+</page-container>
