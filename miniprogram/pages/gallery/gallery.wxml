@@ -13,8 +13,8 @@
       </block>
     </view>
   </view>
-  <view class="normal-content">
-    <text class="title">title测试</text>
+  <view class="normal-content recommand">
+    <text class="title recommand">没时间做饭？看看这些 ( ´▽｀)</text>
     <view class="recommand-container">
       <block wx:for="{{contacts}}" wx:key="id" wx:for-item="contact">
         <dishBlock dishType="2" contact="{{contact}}" duration="{{300}}" transformIdx="{{transformIdx}}" dataIdx="{{index}}" bind:showNext="getShowNext" id="{{index}}" rank="{{index}}" />

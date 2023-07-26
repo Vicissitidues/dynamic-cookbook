@@ -73,8 +73,9 @@
 
 .dishblock-two {
   width: 120px;
-  height: 223px;
+  height: auto;
   margin-right: 11px;
+
   .d2-avatar {
     width: 120px;
     height: 180px;
@@ -89,8 +90,16 @@
     font-weight: 500;
     word-wrap: break-word;
     margin-top: 8px;
-    overflow:hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+  }
+
+  .d2-ttk {
+    color: rgba(49, 49, 49, 0.70);
+    font-size: 11px;
+    font-family: PingFang SC;
+    font-weight: 400;
+    word-wrap: break-word
   }
 }

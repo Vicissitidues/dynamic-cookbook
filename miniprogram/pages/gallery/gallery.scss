@@ -166,7 +166,13 @@ button {
 }
 
 .normal-content {
-  margin-left: 25px;
+  padding-left: 25px;
+  &.recommand {
+    background-image: linear-gradient(rgba(255, 132, 43, 0.3), rgba(255, 132, 43, 0));
+    margin-top: 36px;
+    border-radius: 30px;
+    padding-top: 18px;
+  }
 
   .title {
     // 最受欢迎
@@ -175,7 +181,16 @@ button {
     font-family: PingFang SC;
     font-weight: 600;
     line-height: 26px;
-    word-wrap: break-word
+    word-wrap: break-word;
+    &.recommand::after{
+      content: "";
+      width: 222px;
+      height: 7px;
+      border-radius: 7px;
+      background-color: #ff842b;
+      display: block;
+      margin-top: -10px;
+    }
   }
 }
 
@@ -185,4 +200,5 @@ button {
   width: auto;
   overflow-x: scroll;
   scrollbar-width: none;
+  margin-top: 15px;
 }

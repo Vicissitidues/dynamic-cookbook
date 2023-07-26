@@ -1,4 +1,3 @@
-<!--components/block/block.wxml-->
 <!--------------- DT1 --------------->
 <view wx:if="{{dishType === 1}}" class="contact {{rank === 0 ? 'long': 'short'}}" bindtap="showNext" data-idx="{{dataIdx}}">
   <share-element class="avatar1" key="avatar" duration="{{duration}}" transform="{{transformIdx === dataIdx}}">
@@ -19,7 +18,7 @@
   <share-element class="d2-name" key="name" duration="{{duration}}" transform="{{transformIdx === dataIdx}}" >
     {{contact.longTitle}}
   </share-element>
-  <text>仅需{{contact.timeTaken}}</text>
+  <text class="d2-ttk">仅需{{contact.timeTaken}}</text>
 </view>
 <!--------------- DT3 --------------->
 <view wx:elif="{{dishType === 3}}">
