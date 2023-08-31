@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/gallery/gallery",
     "pages/index/index",
     "pages/logs/logs",
-    "pages/detail/detail",
-    "pages/gallery/gallery"
+    "pages/detail/detail"
   ],
   "window": {
     "navigationBarBackgroundColor": "@navBgColor",
@@ -13,7 +13,6 @@
     "backgroundColorTop": "@bgColorTop",
     "backgroundColorBottom": "@bgColorBottom"
   },
-  "style": "v2",
   "sitemapLocation": "sitemap.json",
   "darkmode": true,
   "themeLocation": "theme.json",

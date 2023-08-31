@@ -48,7 +48,7 @@ Page({
   },
   tapVibrate() {
     let cont: number = 0;
-    const intv: number = setInterval(() => {
+    const intv = setInterval(() => {
       wx.vibrateShort({
         type: 'light'
       })

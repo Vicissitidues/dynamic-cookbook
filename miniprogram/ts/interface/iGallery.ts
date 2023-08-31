@@ -9,15 +9,22 @@ export interface iRecipePage {
   }
 }
 
+interface classifies {
+  label: string;
+  id: number;
+}
+
 export interface iData {
   contacts: Record[];
   contact: Record;
   transformIdx: number;
-  position: string;
   duration: number;
   show: boolean;
   overlay: boolean;
   dataList: [];
   page: number;
   pageSize: number;
+  container: any;
+  showTopMask: boolean;
+  classifies: classifies[];
 }

@@ -1,7 +1,10 @@
 {
   "usingComponents": {
    "detail": "/components/detail/detail",
-   "dishBlock":"/components/dishBlock/dishBlock"
+   "dishBlock":"/components/dishBlock/dishBlock",
+   "van-tab": "@vant/weapp/tab/index",
+   "van-tabs": "@vant/weapp/tabs/index",
+   "sticky":"@vant/weapp/sticky/index"
   },
   "navigationStyle": "custom"
 }

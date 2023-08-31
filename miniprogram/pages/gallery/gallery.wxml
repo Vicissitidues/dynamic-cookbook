@@ -6,7 +6,7 @@
     </view>
   </view>
   <view class="normal-content">
-    <text class="title" > 最受欢迎 </text>
+    <text class="title"> 最受欢迎 </text>
     <view class="grid-view-container">
       <block wx:for="{{contacts}}" wx:key="id" wx:for-item="contact">
         <dishBlock class=" contact {{index === 0 ? 'long' : 'short'}}" dishType="1" contact="{{contact}}" duration="{{300}}" transformIdx="{{transformIdx}}" dataIdx="{{index}}" bind:showNext="getShowNext" id="{{index}}" rank="{{index}}" />
@@ -21,8 +21,27 @@
       </block>
     </view>
   </view>
+  <view class="normal-content classify" id="classify" style="{{styleTop}}">
+    <sticky offset-top="{{top+10}}" container="{{container}}" z-index="1">
+      <text class="title classify">全部分类</text>
+    </sticky>
+    <van-tabs title-active-color="#C0E148" color="#C0E148" title-inactive-color="rgba(49, 49, 49, 0.30)" animated swipeable sticky offset-top="{{top+40}}" bind:scroll="bindScroll">
+      <block wx:for="{{classifies}}" wx:key="id" wx:for-item="classify">
+        <van-tab title="{{classify.label}}">
+          <view style="background-color: white;" class="classify-item-container">
+            <view class="classify-item" wx:for="{{contacts}}" wx:key="id" wx:for-item="contact">
+              <dishBlock class=" contact {{index === 0 ? 'long' : 'short'}}" dishType="2" contact="{{contact}}" duration="{{300}}" transformIdx="{{transformIdx}}" dataIdx="{{index}}" bind:showNext="getShowNext" id="{{index}}" rank="{{index}}" />
+            </view>
+          </view>
+        </van-tab>
+      </block>
+    </van-tabs>
+  </view>
+
+
   <view style="height: 200vh;">
 
   </view>
 </scroll-view>
-<detail contact="{{contact}}" show="{{show}}" overlay="{{overlay}}" duration="{{duration}}" position="{{position}}" bind:showPrev="getShowPrev" />
+<view class="mask" style="height:{{top + 40}}px; opacity: {{showTopMask?1:0}};"></view>
+<detail contact="{{contact}}" show="{{show}}" overlay="{{overlay}}" duration="{{duration}}" position="center" bind:showPrev="getShowPrev" />

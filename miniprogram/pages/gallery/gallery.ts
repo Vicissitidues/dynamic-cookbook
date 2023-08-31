@@ -13,7 +13,6 @@ Page({
     contacts,
     contact: contacts[0],
     transformIdx: 0,
-    position: 'center',
     duration: 300,
     show: false,
     overlay: false,
@@ -21,12 +20,20 @@ Page({
     page: 1,
     pageSize: 20,
     top: app.globalData.top,
+    container: null,
+    showTopMask: false,
+    classifies: [{ label: '炒菜', id: 0 },
+    { label: '煲汤', id: 1 },
+    { label: '主食', id: 1 },
+    { label: '甜点', id: 1 },
+    { label: '凉菜', id: 1 },
+    { label: '饮品', id: 1 },
+    ]
   },
 
   showNext(e: any) {
     const idx = e.currentTarget.dataset.idx
-    console.log('>>>>',idx);
-    
+    console.log('>>>>', idx);
     this.setData({
       show: true,
       contact: this.data.contacts[idx],
@@ -40,12 +47,12 @@ Page({
       show: e.detail
     })
   },
-  getShowNext(e:any) {
-    console.log('next',e);
+  getShowNext(e: any) {
+    console.log('next', e);
     this.setData({
       transformIdx: e.currentTarget.id,
       contact: this.data.contacts[e.currentTarget.id],
-    },()=>{
+    }, () => {
       this.setData({
         show: true,
       })
@@ -59,14 +66,14 @@ Page({
       this.animate('#tse', [{
         width: '100%',
         marginLeft: '0px'
-      },{
+      }, {
         width: '15%',
         marginLeft: '110px'
       }], 2000, {
         scrollSource: '#gscroller',
         timeRange: 1000,
         startScrollOffset: 0,
-        endScrollOffset: 100
+        endScrollOffset: 50
       })
     }).exec()
   },
@@ -86,12 +93,21 @@ Page({
     console.log(this.data.contacts);
 
   },
+  bindScroll(scrollState: any) {
+    const currshow = scrollState.detail.isFixed;
+    currshow !== this.data.showTopMask &&
+      this.setData({
+        showTopMask: currshow
+      })
+    console.log(this.data.showTopMask);
 
+  },
   /** 
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options: any) {
     console.log('top', app.globalData.top);
+    //  wx.createSelectorQuery().select('.van-sticky')
 
   },
 
@@ -101,6 +117,9 @@ Page({
   onReady: function () {
     this.getData();
     this._animate();
+    this.setData({
+      container: () => wx.createSelectorQuery().select('#classify')
+    })
   },
 
   /**

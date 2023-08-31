@@ -12,6 +12,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@vant/weapp": "^1.10.22",
     "cos-wx-sdk-v5": "^1.4.10"
+  },
+  "devDependencies": {
+    "miniprogram-api-typings": "^3.10.0"
   }
 }

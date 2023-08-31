@@ -3,13 +3,15 @@
 page {
   color: #333;
   background-color: #ddd;
-  overflow: hidden;
-  height: 100%;
+  // overflow: hidden;
+  // height: 100%;
 }
-
+#gscroller{
+  height: unset !important ;
+}
 .header {
   width: 100%;
-  height: 200px;
+  height: 170px;
   padding-left: 25px;
   padding-right: 25px;
   box-sizing: border-box;
@@ -167,6 +169,7 @@ button {
 
 .normal-content {
   padding-left: 25px;
+
   &.recommand {
     background-image: linear-gradient(rgba(255, 132, 43, 0.3), rgba(255, 132, 43, 0));
     margin-top: 36px;
@@ -174,15 +177,31 @@ button {
     padding-top: 18px;
   }
 
+  &.classify {
+    padding-left: 0;
+    margin-top: 10px;
+    .van-sticky{
+      position: sticky !important;
+    }
+    .classify-item-container{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      .classify-item{
+        flex-basis: 50%;
+      }
+    }
+  }
+
   .title {
-    // 最受欢迎
     color: #313131;
     font-size: 16px;
     font-family: PingFang SC;
     font-weight: 600;
     line-height: 26px;
     word-wrap: break-word;
-    &.recommand::after{
+
+    &.recommand::after {
       content: "";
       width: 222px;
       height: 7px;
@@ -191,9 +210,12 @@ button {
       display: block;
       margin-top: -10px;
     }
+
+    &.classify{
+      padding-left: 20px;
+    }
   }
 }
-
 
 .recommand-container {
   display: flex;
@@ -202,3 +224,13 @@ button {
   scrollbar-width: none;
   margin-top: 15px;
 }
+
+.mask{
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  visibility:visible;
+  transition: opacity 0.1s linear;
+}
+
