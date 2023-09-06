@@ -1,7 +1,7 @@
 # dynamic-cookbook
 dynamic-cookbook app build for wechat miniprogram
 ## summary 
-a powerful and useful receipe for all users, whichi can support recommand you to eat in healthy way; to teach you create a delicious dish step by step(i mean, really step by step),and more functions will be released in the future.
+a powerful and useful receipe for all users, which can support recommand you to eat in healthy way; to teach you create a delicious dish step by step(i mean, really step by step),and more functions will be released in the future.
 ## now supported 
 - TypeScript
 - dark mode

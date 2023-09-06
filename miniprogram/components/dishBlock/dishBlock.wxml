@@ -1,26 +1,37 @@
 <!--------------- DT1 --------------->
-<view wx:if="{{dishType === 1}}" class="contact {{rank === 0 ? 'long': 'short'}}" bindtap="showNext" data-idx="{{dataIdx}}">
-  <share-element class="avatar1" key="avatar" duration="{{duration}}" transform="{{transformIdx === dataIdx}}">
+<view class="contact {{rank === 0 ? 'long': 'short'}}" wx:if="{{dishType === 1}}" bindtap="showNext" data-idx="{{dataIdx}}">
+  <share-element class="avatar1" key="avatar" duration="{{duration}}" transform="{{transformIdx === dataIdx && dishType === transformBlock }}">
     <image src="{{contact.cover}}" style="width: 100%;height: 100%;" mode="aspectFill"></image>
   </share-element>
   <view class="mask {{rank === 0 ? 'long':'short'}} ">
     <view class="rank" style="background-color: {{color}};">TOP {{dataIdx + 1}}</view>
   </view>
-  <share-element duration="{{duration}}" class="name" key="name" transform="{{transformIdx === dataIdx}}">
+  <share-element duration="{{duration}}" class="name" key="name" transform="{{transformIdx === dataIdx && dishType === transformBlock }}">
     {{contact.longTitle}}
   </share-element>
 </view>
 <!--------------- DT2 --------------->
 <view class="dishblock-two" wx:elif="{{dishType === 2}}" bindtap="showNext" data-idx="{{dataIdx}}">
-  <share-element class="d2-avatar" key="avatar" duration="{{duration}}" transform="{{transformIdx === dataIdx}}">
-    <image src="{{contact.cover}}" style="width: 100%; height: 100%" mode="aspectFill" ></image> 
+  <share-element class="d2-avatar" key="avatar" duration="{{duration}}" transform="{{transformIdx === dataIdx && dishType === transformBlock }}">
+    <image src="{{contact.cover}}" style="width: 100%; height: 100%" mode="aspectFill"></image>
   </share-element>
-  <share-element class="d2-name" key="name" duration="{{duration}}" transform="{{transformIdx === dataIdx}}" >
+  <share-element class="d2-name" key="name" duration="{{duration}}" transform="{{transformIdx === dataIdx && dishType === transformBlock }}">
     {{contact.longTitle}}
   </share-element>
   <text class="d2-ttk">仅需{{contact.timeTaken}}</text>
 </view>
 <!--------------- DT3 --------------->
-<view wx:elif="{{dishType === 3}}">
-  <text>not complete current</text>
+<view class="dishblock-three" wx:elif="{{dishType === 3}}" bindtap="showNext" data-idx="{{dataIdx}}">
+  <share-element class="d3-avatar" key="avatar" duration="{{duration}}" transform="{{transformIdx === dataIdx && dishType === transformBlock }}">
+    <image src="{{contact.cover}}" style="width: 100%; height: 100%" mode="aspectFill"></image>
+  </share-element>
+  <view class="mask">
+    <view class="info">
+      <image class="icon" src="../../assets/svg/time.svg" /> {{contact.timeTaken}} |
+      <image class="icon" src="../../assets/svg/dish.svg" />{{difficulty}}
+    </view>
+  </view>
+  <share-element class="d3-name" key="name" duration="{{duration}}" transform="{{transformIdx === dataIdx && dishType === transformBlock }}">
+    {{contact.longTitle}}
+  </share-element>
 </view>

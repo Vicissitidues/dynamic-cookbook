@@ -6,7 +6,7 @@ type arr1 = Array<{ [k in pKeys]: string }>;
 enum eDifficulty {
   新手 = 1,
   普通 = 2,
-  专家 = 3
+  专家 = 3,
 }
 enum eIcon {
   time = "../../assets/svg/time.svg",

@@ -103,3 +103,49 @@
     word-wrap: break-word
   }
 }
+
+.dishblock-three {
+  width: 100%;
+  height: 216px;
+
+  .d3-avatar {
+    width: 100%;
+    height: 188px;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .mask {
+    width: 100%;
+    position: relative;
+    background-image: linear-gradient(rgba(1, 1, 1, 0), rgba(1, 1, 1, 0), rgba(1, 1, 1, 0.8));
+    overflow: hidden;
+    margin-top: -216px;
+    height: 216px;
+
+    .info {
+      bottom: 10px;
+      color: white;
+      position: absolute;
+      text-align: center;
+      width: 100%;
+      font-size: 11px;
+      line-height: 15px;
+      font-weight: 400;
+      .icon{
+        width: 10px;
+        height: 10px;
+        margin-bottom: -2px;
+      }
+    }
+  }
+
+  .d3-name {
+    font-family: PingFang SC;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+}

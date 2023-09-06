@@ -9,7 +9,7 @@
     <text class="title"> 最受欢迎 </text>
     <view class="grid-view-container">
       <block wx:for="{{contacts}}" wx:key="id" wx:for-item="contact">
-        <dishBlock class=" contact {{index === 0 ? 'long' : 'short'}}" dishType="1" contact="{{contact}}" duration="{{300}}" transformIdx="{{transformIdx}}" dataIdx="{{index}}" bind:showNext="getShowNext" id="{{index}}" rank="{{index}}" />
+        <dishBlock class=" contact {{index === 0 ? 'long' : 'short'}}" dishType="1" contact="{{contact}}" duration="{{300}}" transformBlock="{{transformBlock}}"  transformIdx="{{transformIdx}}" dataIdx="{{index}}" bind:showNext="getShowNext" data-dish="1" id="{{index}}" rank="{{index}}" />
       </block>
     </view>
   </view>
@@ -17,7 +17,7 @@
     <text class="title recommand">没时间做饭？看看这些 ( ´▽｀)</text>
     <view class="recommand-container">
       <block wx:for="{{contacts}}" wx:key="id" wx:for-item="contact">
-        <dishBlock dishType="2" contact="{{contact}}" duration="{{300}}" transformIdx="{{transformIdx}}" dataIdx="{{index}}" bind:showNext="getShowNext" id="{{index}}" rank="{{index}}" />
+        <dishBlock dishType="2" contact="{{contact}}" duration="{{300}}" transformIdx="{{transformIdx}}" transformBlock="{{transformBlock}}" dataIdx="{{index}}" data-dish="2" bind:showNext="getShowNext" id="{{index}}" rank="{{index}}" />
       </block>
     </view>
   </view>
@@ -30,7 +30,8 @@
         <van-tab title="{{classify.label}}">
           <view style="background-color: white;" class="classify-item-container">
             <view class="classify-item" wx:for="{{contacts}}" wx:key="id" wx:for-item="contact">
-              <dishBlock class=" contact {{index === 0 ? 'long' : 'short'}}" dishType="2" contact="{{contact}}" duration="{{300}}" transformIdx="{{transformIdx}}" dataIdx="{{index}}" bind:showNext="getShowNext" id="{{index}}" rank="{{index}}" />
+              <dishBlock class=" contact {{index === 0 ? 'long' : 'short'}}" dishType="3" contact="{{contact}}" duration="{{300}}" transformIdx="{{transformIdx}}" 
+              transformBlock="{{transformBlock}}" dataIdx="{{index}}" data-dish="3" bind:showNext="getShowNext" id="{{index}}" rank="{{index}}" />
             </view>
           </view>
         </van-tab>

@@ -1,4 +1,4 @@
-import { eDifficulty } from "../../ts/interface/detail";
+import { eDifficulty, eIcon } from "../../ts/interface/detail";
 import { eDishType } from "../../ts/interface/iDishBlock";
 
 /**
@@ -24,6 +24,7 @@ Component({
     dataIdx: Number,
     duration: Number,
     transformIdx: Number,
+    transformBlock: Number,
     contact: Object,
 
   },
@@ -32,7 +33,12 @@ Component({
    * 组件的初始数据
    */
   data: {
-    color: 'lightgray'
+    color: 'lightgray',
+    difficulty: '',
+    icon:{
+      slaver:eIcon.salver,
+      time: eIcon.time,
+    }
   },
 
   /**
@@ -40,15 +46,26 @@ Component({
    */
   methods: {
     showNext(e: any) {
-      console.log(e);
+      // console.log(e);
       this.triggerEvent('showNext', true)
     }
   },
   lifetimes: {
     attached: function () {
+      const difficulty = eDifficulty[this.properties.contact.difficulty]
+      console.log(eDifficulty[this.properties.contact.difficulty]);
+      
       this.setData({
-        color: ['#FF842B', '#FDB008', '#C0E148', '#B0B0B0'][this.properties.dataIdx <= 2 ? this.data.dataIdx : 4]
+        color: ['#FF842B', '#FDB008', '#C0E148', '#B0B0B0'][this.properties.dataIdx <= 2 ? this.data.dataIdx : 4],
+        difficulty
       })
+    },
+    ready: () => {
+      console.log('>>>>>>');
+    },
+    moved: () => {
+      console.log('xxxxx');
+
     }
   }
 })

@@ -18,6 +18,7 @@ export interface iData {
   contacts: Record[];
   contact: Record;
   transformIdx: number;
+  transformBlock: number;
   duration: number;
   show: boolean;
   overlay: boolean;

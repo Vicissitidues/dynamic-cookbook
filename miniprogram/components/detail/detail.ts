@@ -138,7 +138,6 @@ Component({
         },
         recipeId
       }, "POST");
-      console.log(detail);
       
       this.setData({
         prepare: {
@@ -151,13 +150,11 @@ Component({
       wx.getStorage({
         key: 'menuBtnPos',
         success: res => {
-          console.log(res);
           this.setData({
             top: res.data.top
           })
         }
       })
-      console.log(res)
     },
     async onEnter(res: any) {
       this.getRecipe(this.properties.contact.id);
@@ -173,19 +170,15 @@ Component({
         }],
         attention: ['肉丝不需要过油炸，所以尽量选用稍微带一点肥肉的五花肉。', '鱼香汁要提前兑好。', '这里的鱼香肉丝，咱们采用的是家庭做法，不过油;味道自然会比传统做法稍逊一点。但是做出来的味道，清淡健康。']
       }
-      console.log(data);
-
       this.setData({
-
         prepare: { ...this.data.prepare, ...data }
       })
-      console.log('data', this.data.prepare)
     },
     onAfterEnter(res: any) {
-      console.log(res)
+      // console.log(res)
     },
     onBeforeLeave(res: any) {
-      console.log(res)
+      // console.log(res)
     },
     onLeave(res: any) {
       this.triggerEvent('showPrev', false)
@@ -194,16 +187,16 @@ Component({
       })
     },
     onAfterLeave(res: any) {
-      console.log(res)
+      // console.log(res)
     },
   },
   observers: {
     'contact': (contact) => {
 
-      console.log('change:', contact);
+      // console.log('change:', contact);
     },
     'show': show => {
-      console.log('show', show);
+      // console.log('show', show);
 
     }
     // 'show':function(show){
