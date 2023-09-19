@@ -1,47 +1,53 @@
 <scroll-view id="gscroller" scroll-y throttle="{{false}}">
-  <view class="header">
-    <view class="banner" style="top: {{top+5}}px;">探索</view>
-    <view id="tse" class="search-content" style="top:{{top+45}}px">
-      <icon type="search" />
+  <view class="content-container">
+    <!-- 头部信息 -->
+    <view class="header">
+      <view class="banner" style="top: {{top+5}}px;">探索</view>
+      <view id="tse" class="search-content" style="top:{{top+45}}px">
+        <icon type="search" />
+      </view>
     </view>
-  </view>
-  <view class="normal-content">
-    <text class="title"> 最受欢迎 </text>
-    <view class="grid-view-container">
-      <block wx:for="{{contacts}}" wx:key="id" wx:for-item="contact">
-        <dishBlock class=" contact {{index === 0 ? 'long' : 'short'}}" dishType="1" contact="{{contact}}" duration="{{300}}" transformBlock="{{transformBlock}}"  transformIdx="{{transformIdx}}" dataIdx="{{index}}" bind:showNext="getShowNext" data-dish="1" id="{{index}}" rank="{{index}}" />
-      </block>
+    <!-- 功能板块 排名 -->
+    <view class="normal-content">
+      <text class="title"> 最受欢迎 </text>
+      <skeleton loading="{{loading}}" animate row="5">
+        <view class="grid-view-container">
+          <block wx:for="{{contacts}}" wx:key="id" wx:for-item="contact">
+            <dishBlock class=" contact {{index === 0 ? 'long' : 'short'}}" dishType="1" contact="{{contact}}" duration="{{300}}" transformBlock="{{transformBlock}}" transformIdx="{{transformIdx}}" dataIdx="{{index}}" bind:showNext="getShowNext" data-dish="1" id="{{index}}" rank="{{index}}" />
+          </block>
+        </view>
+      </skeleton>
     </view>
-  </view>
-  <view class="normal-content recommand">
-    <text class="title recommand">没时间做饭？看看这些 ( ´▽｀)</text>
-    <view class="recommand-container">
-      <block wx:for="{{contacts}}" wx:key="id" wx:for-item="contact">
-        <dishBlock dishType="2" contact="{{contact}}" duration="{{300}}" transformIdx="{{transformIdx}}" transformBlock="{{transformBlock}}" dataIdx="{{index}}" data-dish="2" bind:showNext="getShowNext" id="{{index}}" rank="{{index}}" />
-      </block>
+    <!-- 功能板块 推荐 -->
+    <view class="normal-content recommand">
+      <text class="title recommand">没时间做饭？看看这些 ( ´▽｀)</text>
+      <skeleton loading="{{loading}}" animate row="5" >
+        <view class="recommand-container">
+          <block wx:for="{{contacts}}" wx:key="id" wx:for-item="contact">
+            <dishBlock dishType="2" contact="{{contact}}" duration="{{300}}" transformIdx="{{transformIdx}}" transformBlock="{{transformBlock}}" dataIdx="{{index}}" data-dish="2" bind:showNext="getShowNext" id="{{index}}" rank="{{index}}" />
+          </block>
+        </view>
+      </skeleton>
     </view>
-  </view>
-  <view class="normal-content classify" id="classify" style="{{styleTop}}">
-    <sticky offset-top="{{top+10}}" container="{{container}}" z-index="1">
-      <text class="title classify">全部分类</text>
-    </sticky>
-    <van-tabs title-active-color="#C0E148" color="#C0E148" title-inactive-color="rgba(49, 49, 49, 0.30)" animated swipeable sticky offset-top="{{top+40}}" bind:scroll="bindScroll">
-      <block wx:for="{{classifies}}" wx:key="id" wx:for-item="classify">
-        <van-tab title="{{classify.label}}">
-          <view style="background-color: white;" class="classify-item-container">
-            <view class="classify-item" wx:for="{{contacts}}" wx:key="id" wx:for-item="contact">
-              <dishBlock class=" contact {{index === 0 ? 'long' : 'short'}}" dishType="3" contact="{{contact}}" duration="{{300}}" transformIdx="{{transformIdx}}" 
-              transformBlock="{{transformBlock}}" dataIdx="{{index}}" data-dish="3" bind:showNext="getShowNext" id="{{index}}" rank="{{index}}" />
+    <!-- 功能板块 分类 -->
+    <view class="normal-content classify" id="classify" style="{{styleTop}}">
+      <sticky offset-top="{{top+10}}" container="{{container}}" z-index="1">
+        <text class="title classify">全部分类</text>
+      </sticky>
+      <van-tabs title-active-color="#C0E148" color="#C0E148" title-inactive-color="rgba(49, 49, 49, 0.30)" animated swipeable sticky offset-top="{{top+40}}" bind:scroll="bindScroll">
+        <block wx:for="{{classifies}}" wx:key="id" wx:for-item="classify">
+          <van-tab title="{{classify.label}}">
+          <skeleton loading="{{loading}}" animate row="5" >
+            <view style="background-color: white;" class="classify-item-container">
+              <view class="classify-item" wx:for="{{contacts}}" wx:key="id" wx:for-item="contact">
+                <dishBlock class=" contact {{index === 0 ? 'long' : 'short'}}" dishType="3" contact="{{contact}}" duration="{{300}}" transformIdx="{{transformIdx}}" transformBlock="{{transformBlock}}" dataIdx="{{index}}" data-dish="3" bind:showNext="getShowNext" id="{{index}}" rank="{{index}}" />
+              </view>
             </view>
-          </view>
-        </van-tab>
-      </block>
-    </van-tabs>
-  </view>
-
-
-  <view style="height: 200vh;">
-
+          </skeleton>
+          </van-tab>
+        </block>
+      </van-tabs>
+    </view>
   </view>
 </scroll-view>
 <view class="mask" style="height:{{top + 40}}px; opacity: {{showTopMask?1:0}};"></view>

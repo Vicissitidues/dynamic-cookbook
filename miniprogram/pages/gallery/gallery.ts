@@ -29,7 +29,8 @@ Page({
     { label: '甜点', id: 1 },
     { label: '凉菜', id: 1 },
     { label: '饮品', id: 1 },
-    ]
+    ],
+    loading:true,
   },
 
   showNext(e: any) {
@@ -89,7 +90,8 @@ Page({
         },
       }, "POST");
     this.setData({
-      contacts: data.data.records
+      contacts: data.data.records,
+      loading: false
     })
 
   },

@@ -6,12 +6,14 @@ page {
   // overflow: hidden;
   // height: 100%;
 }
-#gscroller{
-  height: unset !important ;
+
+#gscroller {
+  height: unset !important;
 }
+
 .header {
   width: 100%;
-  height: 170px;
+  height: 150px;
   padding-left: 25px;
   padding-right: 25px;
   box-sizing: border-box;
@@ -167,6 +169,11 @@ button {
   }
 }
 
+.content-container {
+  background-color: white;
+  padding-bottom: 24px;
+}
+
 .normal-content {
   padding-left: 25px;
 
@@ -179,11 +186,13 @@ button {
 
   &.classify {
     padding-left: 0;
-    margin-top: 10px;
-    .van-sticky{
+    margin-top: 44px;
+
+    .van-sticky {
       position: sticky !important;
     }
-    .classify-item-container{
+
+    .classify-item-container {
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
@@ -191,18 +200,23 @@ button {
       padding-right: 25px;
       align-items: flex-start;
       align-content: flex-start;
-      .classify-item{
+
+      .classify-item {
         flex-basis: 48%;
+        margin-top: 18px;
       }
     }
   }
 
   .title {
     color: #313131;
-    font-size: 16px;
+    margin-top: 8px;
     font-family: PingFang SC;
-    font-weight: 600;
-    line-height: 26px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0em;
+    text-align: left;
     word-wrap: break-word;
 
     &.recommand::after {
@@ -215,7 +229,7 @@ button {
       margin-top: -10px;
     }
 
-    &.classify{
+    &.classify {
       padding-left: 25px;
     }
   }
@@ -229,12 +243,12 @@ button {
   margin-top: 15px;
 }
 
-.mask{
+.mask {
   position: fixed;
   top: 0;
   width: 100%;
   background-color: white;
-  visibility:visible;
+  visibility: visible;
   transition: opacity 0.1s linear;
 }
 

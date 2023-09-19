@@ -64,7 +64,7 @@
       <button hover-class="afterpressed" hover-stay-time="500">
         <view>
           <image id="btn-icon" src="../../assets/svg/scoop.svg" />
-          <text>查看做法</text>
+          <text>详细做法</text>
         </view>
       </button>
     </view>

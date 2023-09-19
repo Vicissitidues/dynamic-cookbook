@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/gallery/gallery",
     "pages/index/index",
+    "pages/gallery/gallery",
     "pages/logs/logs",
-    "pages/detail/detail"
+    "pages/detail/detail",
+    "pages/mine/mine"
   ],
   "window": {
     "navigationBarBackgroundColor": "@navBgColor",
@@ -17,14 +18,28 @@
   "darkmode": true,
   "themeLocation": "theme.json",
   "tabBar": {
-    "list": [{
-      "pagePath": "pages/index/index",
-      "text": "首页"
-    
-    },{
-      "pagePath": "pages/gallery/gallery",
-      "text": "列表"
-    
-    }]
+    "color": "#6D6D6D",
+    "selectedColor": "#C0E148",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "selectedIconPath": "/assets/image/menu_mainpage_on.png",
+        "iconPath": "/assets/image/menu_mainpage.png"
+      },
+      {
+        "pagePath": "pages/gallery/gallery",
+        "text": "探索",
+        "selectedIconPath": "/assets/image/menu_explore_on.png",
+        "iconPath": "/assets/image/menu_explore.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "selectedIconPath": "/assets/image/menu_mine_on.png",
+        "iconPath": "/assets/image/menu_mine.png"
+      }
+    ]
   }
 }

@@ -27,8 +27,13 @@
   </share-element>
   <view class="mask">
     <view class="info">
-      <image class="icon" src="../../assets/svg/time.svg" /> {{contact.timeTaken}} |
-      <image class="icon" src="../../assets/svg/dish.svg" />{{difficulty}}
+      <view>
+        <image class="icon" src="../../assets/svg/time.svg" />{{contact.timeTaken}}
+      </view>
+      <view>|</view>
+      <view>
+        <image class="icon" src="../../assets/svg/dish.svg" />{{difficulty}}
+      </view>
     </view>
   </view>
   <share-element class="d3-name" key="name" duration="{{duration}}" transform="{{transformIdx === dataIdx && dishType === transformBlock }}">
