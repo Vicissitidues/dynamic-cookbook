@@ -1,0 +1,28 @@
+<scroll-view id="gscroller" scroll-y throttle="{{false}}">
+  <view class="header">
+    <view class="banner" style="top: {{top+5}}px;">探索</view>
+    <view id="tse" class="search-content" style="top:{{top+45}}px">
+      <icon type="search" />
+    </view>
+  </view>
+  <view class="normal-content">
+    <text class="title" > 最受欢迎 </text>
+    <view class="grid-view-container">
+      <block wx:for="{{contacts}}" wx:key="id" wx:for-item="contact">
+        <dishBlock class=" contact {{index === 0 ? 'long' : 'short'}}" dishType="1" contact="{{contact}}" duration="{{300}}" transformIdx="{{transformIdx}}" dataIdx="{{index}}" bind:showNext="getShowNext" id="{{index}}" rank="{{index}}" />
+      </block>
+    </view>
+  </view>
+  <view class="normal-content recommand">
+    <text class="title recommand">没时间做饭？看看这些 ( ´▽｀)</text>
+    <view class="recommand-container">
+      <block wx:for="{{contacts}}" wx:key="id" wx:for-item="contact">
+        <dishBlock dishType="2" contact="{{contact}}" duration="{{300}}" transformIdx="{{transformIdx}}" dataIdx="{{index}}" bind:showNext="getShowNext" id="{{index}}" rank="{{index}}" />
+      </block>
+    </view>
+  </view>
+  <view style="height: 200vh;">
+
+  </view>
+</scroll-view>
+<detail contact="{{contact}}" show="{{show}}" overlay="{{overlay}}" duration="{{duration}}" position="{{position}}" bind:showPrev="getShowPrev" />

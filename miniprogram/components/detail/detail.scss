@@ -1,5 +1,61 @@
+/* components/detail/detail.wxss */
+.page{
+  width: 100%;
+  height: 100%;
+}
+.screen {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.contact {
+  position: relative;
+  padding: 16px;
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+// .avatar {
+//   //position: absolute;
+//   width: 500px;
+//   height: 300px;
+//   font-size: 0;
+// }
+.name1{
+  height: 65px;
+  font-size: 4em;
+  font-weight: bold;
+  text-align: center;
+  margin: 10px 0;
+}
+
+.paragraph {
+  -webkit-transition: opacity ease-in-out 500ms;
+  transition: transform ease-in-out 500ms;
+  // -webkit-transform: translateY(1000px);
+ transform: translateY(400px);
+//  opacity: 1;
+}
+.enter.paragraph {
+  transform: none;
+}
+.screen2-button {
+  display: block;
+  margin: 24px auto;
+}
+
+
+// copy
+
 /* pages/ppgard.wxss */
-@import '../styles/global.scss';
+@import '../../pages/styles/global.scss';
 
 page {
   background-color: #EEE;
@@ -136,11 +192,9 @@ button {
   margin-top: 100px;
   padding-left: 20px;
   padding-right: 20px;
-  font-size: 24px;
   position: sticky;
   // top: -55px;
   margin-bottom: 70px;
-  align-items: center;
 
   .dishname {
     color: white;
@@ -148,7 +202,14 @@ button {
     text-overflow: ellipsis;
     white-space: nowrap;
     font-weight: 600;
-    width: 100%;
+    font-size: 24px;
+
+    // height: 65px;
+    // font-size: 1em;
+    // font-weight: bold;
+    // text-align: center;
+    // text-overflow: hidden;
+    // margin: 10px 0;
   }
 }
 

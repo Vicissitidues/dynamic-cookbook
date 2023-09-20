@@ -153,7 +153,6 @@ Page({
       },
       "recipeId": 1
     }, "POST")
-    console.log(detail)
     // handle data
     const data: iPrepare = {
       ...this.data.prepare,

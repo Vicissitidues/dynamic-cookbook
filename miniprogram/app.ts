@@ -1,12 +1,14 @@
 // app.ts
 App<IAppOption>({
-  globalData: {},
+  globalData: {
+    top: 0
+  },
   onLaunch() {
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
+    this.globalData.top = wx.getMenuButtonBoundingClientRect().top;
     // 登录
     wx.login({
       success: res => {

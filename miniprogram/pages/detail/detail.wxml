@@ -3,12 +3,14 @@
     <image class="avatar" src="{{prepare.cover}}" mode="aspectFill" />
     <!-- 渐变区域 -->
     <view class="gradient">
-      <view class="dyc-jbetween dyc-flex title" style="top:{{top-10}}px">
-        <text class="dishname">{{prepare.longTitle}}</text>
-        <image class="likeBtn" bindtap="tapLike" src="{{ prepare.like ? '../../assets/svg/like.svg':'../../assets/svg/like_outline.svg'}}"></image>
-      </view>
-      <view class="description">
-        {{prepare.description}}
+      <view class="title" style="top:{{top-3}}px">
+        <view class="dyc-jbetween dyc-flex ">
+          <text class="dishname">{{prepare.longTitle}}</text>
+          <image class="likeBtn" bindtap="tapLike" src="{{ prepare.like ? '../../assets/svg/like.svg':'../../assets/svg/like_outline.svg'}}"></image>
+        </view>
+        <view class="description">
+          {{prepare.description}}
+        </view>
       </view>
       <view class="hints">
         <view class="hint-container" wx:key="name" wx:for="{{prepare.hints}}" wx:for-item="i">
@@ -46,15 +48,13 @@
         <view class="attention dyc-flex" wx:for="{{prepare.attention}}" wx:for-item="attention" wx:key="attention">
           <view class="dot"> </view>
           <view class="text">
-           <text>{{attention}}</text> 
+            <text>{{attention}}</text>
           </view>
         </view>
       </view>
     </view>
     <!-- 详细做法btn -->
-    <button hover-class="afterpressed"
-    hover-stay-time="500"
-    >
+    <button hover-class="afterpressed" hover-stay-time="500">
       <view>
         <image id="btn-icon" src="../../assets/svg/scoop.svg" />
         <text>查看做法</text>

@@ -2,7 +2,7 @@ import { eCode, globalAlert } from '../ts/common';
 import { api } from './api'
 
 // http request 
-const request: iRequest = (url, data = {}, method) => {
+const request = <T>(url:string, data = {}, method:TMethod):Promise<T> => {
   wx.showLoading({
     title: '加载中',
   });
@@ -16,7 +16,6 @@ const request: iRequest = (url, data = {}, method) => {
         'content-type': 'application/JSON'
       },
       success: (res) => {
-        wx.showToast({title:res.toString(),duration:10000})
         const data = res.data as { code: string };
         handleRequest(res.statusCode);
         switch (data.code) {
@@ -27,7 +26,7 @@ const request: iRequest = (url, data = {}, method) => {
           default:
             break;
         }
-        resolve(res.data);
+        resolve(res.data as T);
       },
       fail: err => { 
         wx.showToast({title:err.toString(),duration:10000})

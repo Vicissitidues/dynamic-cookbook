@@ -1,3 +1,4 @@
+
 enum eCode {
   SUCCESS = 100,
   ERROR = 400,
@@ -11,4 +12,16 @@ enum globalAlert {
   FORBIDDEN = '被拒绝',
   NOTFOUND = '404 not found',
 }
+// 难度
+export enum eDifficulty {
+  EASY = 1,
+  NORMAL,
+  HARD
+}
+export const difficultyTranstion: Record<eDifficulty, string> = {
+  [eDifficulty.EASY]: '简单',
+  [eDifficulty.NORMAL]: '普通',
+  [eDifficulty.HARD]: '困难'
+}
+
 export { eCode, globalAlert }
