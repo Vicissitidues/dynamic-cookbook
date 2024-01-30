@@ -16,7 +16,7 @@ const request = <T>(url:string, data = {}, method:TMethod):Promise<T> => {
         'content-type': 'application/JSON'
       },
       success: (res) => {
-        const data = res.data as { code: string };
+        const data = res.data as { code: string,message: string };
         handleRequest(res.statusCode);
         switch (data.code) {
           case 'B000001':
@@ -31,7 +31,8 @@ const request = <T>(url:string, data = {}, method:TMethod):Promise<T> => {
       fail: err => { 
         wx.showToast({title:err.toString(),duration:10000})
         reject(err) },
-      complete: () => { wx.hideLoading() }
+      complete: () => { 
+        wx.hideLoading() }
     })
   })
 }

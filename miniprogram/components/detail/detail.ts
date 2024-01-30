@@ -189,6 +189,11 @@ Component({
     onAfterLeave(res: any) {
       // console.log(res)
     },
+    navigateToSteps(){
+      wx.navigateTo({
+        url:`/pages/steps/steps?id=${this.properties.contact.id}`
+      })
+    }
   },
   observers: {
     'contact': (contact) => {

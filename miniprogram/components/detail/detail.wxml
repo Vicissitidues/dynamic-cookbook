@@ -41,7 +41,7 @@
           </view>
           <view class="detail-item dyc-flex dyc-jbetween" wx:for="{{prepare.recipeDetails}}" wx:for-item="detail" wx:key="unitName">
             <view>{{detail.ingredientName}}</view>
-            <view id="quatity">{{detail.quantity+detail.unitName}}</view>
+            <view id="quatity">{{(detail.blur ? '':detail.quantity)+detail.unitName}}</view>
           </view>
         </view>
         <!-- 注意事项 -->
@@ -61,7 +61,7 @@
         </view>
       </view>
       <!-- 详细做法btn -->
-      <button hover-class="afterpressed" hover-stay-time="500">
+      <button hover-class="afterpressed" bind:tap="navigateToSteps" hover-stay-time="500">
         <view>
           <image id="btn-icon" src="../../assets/svg/scoop.svg" />
           <text>详细做法</text>

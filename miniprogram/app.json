@@ -4,7 +4,8 @@
     "pages/gallery/gallery",
     "pages/logs/logs",
     "pages/detail/detail",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/steps/steps"
   ],
   "window": {
     "navigationBarBackgroundColor": "@navBgColor",
@@ -21,8 +22,7 @@
     "color": "#6D6D6D",
     "selectedColor": "#C0E148",
     "borderStyle": "white",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/index/index",
         "text": "首页",
         "selectedIconPath": "/assets/image/menu_mainpage_on.png",

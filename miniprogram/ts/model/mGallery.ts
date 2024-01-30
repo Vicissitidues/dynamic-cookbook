@@ -45,10 +45,13 @@ export interface Data {
 }
 
 // 定义一个表示根对象的接口
-export interface RootObject {
+interface RootObject<T> {
   code: string;           // 响应状态码
-  data: Data;             // 数据对象
+  data: T;                // 数据类型
   message: string;        // 响应消息
   requestId: string;      // 请求ID
   success: boolean;       // 请求是否成功
 }
+
+export type mGalleryData = RootObject<Data>
+export type mDetailObject = RootObject<Record>

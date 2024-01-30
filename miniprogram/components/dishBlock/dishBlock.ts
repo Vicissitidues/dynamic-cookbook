@@ -1,5 +1,4 @@
-import { eDifficulty, eIcon } from "../../ts/interface/detail";
-import { eDishType } from "../../ts/interface/iDishBlock";
+import { eDifficulty, eIcon, eRankColor } from "../../ts/interface/detail";
 
 /**
  * Component: 展示菜谱图片与信息的block
@@ -35,8 +34,8 @@ Component({
   data: {
     color: 'lightgray',
     difficulty: '',
-    icon:{
-      slaver:eIcon.salver,
+    icon: {
+      slaver: eIcon.salver,
       time: eIcon.time,
     }
   },
@@ -53,10 +52,9 @@ Component({
   lifetimes: {
     attached: function () {
       const difficulty = eDifficulty[this.properties.contact.difficulty]
-      console.log(eDifficulty[this.properties.contact.difficulty]);
-      
       this.setData({
-        color: ['#FF842B', '#FDB008', '#C0E148', '#B0B0B0'][this.properties.dataIdx <= 2 ? this.data.dataIdx : 4],
+        color: [eRankColor.r1, eRankColor.r2, eRankColor.r3, eRankColor.r4]
+        [this.properties.dataIdx <= 2 ? this.data.dataIdx : 3],
         difficulty
       })
     },

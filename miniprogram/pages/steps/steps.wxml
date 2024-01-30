@@ -1,0 +1,24 @@
+<view class="main">
+  <scroll-view scroll-x="true" class="title-view">
+    <view class="steps-title-container">
+      <view class="steps-title  {{currentStep >= index ? 'selected':'unselected' }} " wx:for="{{steps}}" wx:key="index" bindtap="onTouchSubtitle" data-sort="{{index}}" >
+        {{item.title}}
+        <view wx:if="{{index !== steps.length - 1}}" class="dashLine"></view>
+    </view>
+    </view>
+  </scroll-view>
+  <scroll-view scroll-x enhanced="{{true}}"  
+  bindscroll="onScrollEnd"
+  scroll-left="{{scrollLeft}}"
+  scroll-with-animation="{{true}}" >
+    <view class="steps-container">
+      <view class="step-item" wx:for="{{steps}}">
+        <view class="step-title">
+          {{item.title}}
+        </view>
+        <image class="step-cover" src="{{item.cover}}" mode="aspectFill" />
+        <view class="step-discription">{{item.description}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

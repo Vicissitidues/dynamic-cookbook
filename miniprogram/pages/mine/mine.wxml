@@ -1,2 +1,6 @@
 <!--pages/mine.wxml-->
-<text>this is mine page</text>
+<skeleton>
+
+  <text>this is mine page</text>
+
+</skeleton>

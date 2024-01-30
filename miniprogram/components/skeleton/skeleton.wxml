@@ -1,0 +1,8 @@
+<!-- skeleton component -->
+<view wx:if="{{loading}}">
+  <text>using the skeleton </text>
+
+</view>
+<view wx:else >
+  <slot></slot>
+</view>

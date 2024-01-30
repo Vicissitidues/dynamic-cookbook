@@ -1,6 +1,6 @@
 import { api, request } from "../../api/request"
 import { iRecipePage } from "../../ts/interface/iGallery";
-import { RootObject } from "../../ts/model/mGallery";
+import { mGalleryData } from "../../ts/model/mGallery";
 import { iData } from '../../ts/interface/iGallery';
 
 const contacts: object[] = [{}]
@@ -80,7 +80,7 @@ Page({
     }).exec()
   },
   async getData() {
-    const data: RootObject = await request(api.recipePage,
+    const data: mGalleryData = await request(api.recipePage,
       <iRecipePage>{
         current: this.data.page,
         size: this.data.pageSize,

@@ -1,0 +1,100 @@
+/* pages/steps/steps.wxss */
+.main {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.steps-container {
+  display: flex;
+}
+
+.title-view {
+  margin: 36px 0 40px 0;
+}
+
+.steps-title-container {
+  display: flex;
+  box-sizing: border-box;
+  padding-left: 20px;
+}
+
+.steps-title {
+  flex-shrink: 0;
+  font-family: PingFang SC;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 24px;
+  letter-spacing: 0em;
+  text-align: center;
+  
+ 
+}
+.selected{
+  color: #C0E148;
+
+}
+
+.unselected{
+  color: #313131;
+}
+.steps-title-container::after {
+  content: "";
+  width: 100px;
+}
+
+.dashLine {
+  width: 54px;
+  height: 1px;
+  border-top: 1px dashed rgba($color: #000000, $alpha: .5);
+  margin: 0 10px 5px 10px;
+  display: inline-block;
+}
+
+.step-item {
+  width: 100vw;
+  height: 580px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+
+.step-cover {
+  width: 325px;
+  height: 429px;
+  border-radius: 12px;
+}
+
+.step-title {
+  font-size: 32px;
+  font-weight: 900;
+  line-height: 43px;
+  letter-spacing: 0em;
+  text-align: left;
+  position: absolute;
+  left: 43px;
+  top: 23px;
+  color: white;
+  box-sizing: border-box;
+  padding-bottom: 15px;
+  width: 100px;
+  border-bottom: solid 1px white
+}
+
+.step-discription {
+  width: 325px;
+  font-family: PingFang SC;
+  font-size: 16px;
+  font-weight: lighter;
+  line-height: 29px;
+  letter-spacing: 0em;
+  text-align: justified;
+  margin-top: 30px;
+}
